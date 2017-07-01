@@ -1,5 +1,5 @@
 require 'erb'
-require 'codebreaker'
+# require 'codebreaker'
 require './lib/actions'
 
 class Racker
@@ -8,7 +8,6 @@ class Racker
   end
 
   def initialize(env)
-    puts "initialize works I N I T I A L I Z E"
     @request = Rack::Request.new(env)
     @request.session['start'] = true
     @actions = Actions.new(@request)
@@ -25,8 +24,4 @@ class Racker
     end
   end
 
-
-  # def word
-  #   @request.cookies['word'] || 'Nothing'
-  # end
 end

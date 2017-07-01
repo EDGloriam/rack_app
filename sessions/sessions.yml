@@ -3,16 +3,9 @@
   :game: !ruby/object:Codebreaker::Game
     hint_avaliable: true
     secret_code:
-    - 3
     - 4
-    - 3
-    - 5
-    attempts_spent: 11
-    attempts_left: 8
-    won: :won
-  :curent_game:
-  - :user_input: '1234'
-    :result: "+-"
-  - :user_input: '4312'
-    :result: "--"
-  :player: sasa
+    - 4
+    - 4
+    - 1
+    attempts_spent: 0
+    attempts_left: 0
