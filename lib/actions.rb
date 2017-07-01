@@ -38,7 +38,7 @@ class Actions
     user_input = @request.params['user_input']
     result = @game.reply(user_input)
     store(user_input, result)
-    return break_game(result) if result == (:lose || :won)
+    return break_game(result) if [:won, :lose].include? result
     Rack::Response.new(render('show_reply'))
   end
 

@@ -1,11 +1,26 @@
 ---
 :3511dc131413c78b41dcae99c683684cfcc9571487a6d86f2c2a97d0243a62ca:
   :game: !ruby/object:Codebreaker::Game
-    hint_avaliable: true
+    hint_avaliable: false
     secret_code:
+    - 5
     - 4
-    - 4
-    - 4
-    - 1
-    attempts_spent: 0
-    attempts_left: 0
+    - 2
+    - 3
+    attempts_spent: 7
+    attempts_left: 3
+  :player: der
+  :curent_game:
+  - :user_input: '1234'
+    :result: "---"
+  - :user_input: '1234'
+    :result: "---"
+  - :user_input: '1233'
+    :result: "+-"
+  - :user_input: '1233'
+    :result: "+-"
+  - :user_input: '1233'
+    :result: "+-"
+  - :user_input: '1233'
+    :result: "+-"
+  :hint: "*4**"

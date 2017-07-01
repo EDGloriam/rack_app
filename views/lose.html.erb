@@ -1,7 +1,8 @@
-<p>Game over</p>
-<p>Unfortunately, you have lost</p>
-<p>Secret code was: <%= @game.secret_code %></p>
-<form action="/">
-  <input type="submit" value="Play again">
-</form>
-
+<div class="end-game lose">
+  <p class="game-over">Game over</p>
+  <p>Unfortunately, you have lost</p>
+  <p>Secret code was: <%= @game.secret_code %></p>
+  <form action="/">
+    <button type="submit" class="buttons">Play again</button>
+  </form>
+</div>

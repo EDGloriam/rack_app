@@ -1,6 +1,7 @@
-<table class="reply" >
+<div class="reply">
+<table>
   <thead>
-    <tr>
+    <tr class="table-header">
       <td>Your try</td>
       <td>Coincidence</td>
     </tr>
@@ -14,10 +15,10 @@
           <td class="tokens">
             <%= attempt[:result] %>
           </td>
-        </li>
+        </tr>
     <% end %>
   </tbody>
   </table>
-
+</div>
 <%= self._render('main') %>
 <%= self._render('show_hint') %>

@@ -3,10 +3,11 @@
 
   <form method='post' action="/process_input">
     <input name='user_input' type="text" maxlength="4" required autofocus>
-    <button type='submit' class="button blue_alt">Try(<%=@game.attempts_left%>)</button>
+    <button type='submit' class="buttons btn-try">Try(<%=@game.attempts_left%>)</button>
   </form>
 
-  <form method='post' action="/hint">
-    <button type='submit' class="button blue_alt">Hint</button>
+  <form method='post' action="/hint" class="form-hint">
+    <button type='submit' class="buttons btn-hint">Hint</button>
   </form>
 </div>
+

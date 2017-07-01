@@ -1,5 +1,7 @@
-<p>Victory!</p>
-<p>Secret code was: <%= @game.secret_code %></p>
-<form action="/">
-  <input type="submit" value="Play again">
-</form>
+<div class="end-game won">
+  <p>Victory!</p>
+  <p>Secret code was: <%= @game.secret_code %></p>
+  <form action="/">
+    <batton type="submit" class="buttons">Play again</batton>
+  </form>
+</div>
