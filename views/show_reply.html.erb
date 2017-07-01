@@ -1,0 +1,23 @@
+<table class="reply" >
+  <thead>
+    <tr>
+      <td>Your try</td>
+      <td>Coincidence</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @curent_game.each do |attempt| %>
+        <tr>
+          <td class="input">
+            <%= attempt[:user_input] %>
+          </td>
+          <td class="tokens">
+            <%= attempt[:result] %>
+          </td>
+        </li>
+    <% end %>
+  </tbody>
+  </table>
+
+<%= self._render('game') %>
+<%= self._render('show_hint') %>
