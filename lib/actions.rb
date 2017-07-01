@@ -6,12 +6,14 @@ class Actions
   attr_accessor :player
 
   def initialize(request)
+    puts "Action INITIALIZE"
     @request = request
       @sessions_helper = SessionHelper.new
       @session_id = @request.session['session_id'].to_sym
       @session = @sessions_helper.open_session(@session_id)
-    @game = @session[:game] || {}
+    @game = @session[:game]
     @curent_game = @session[:curent_game] || []
+    @hint = false
   end
 
   def index
@@ -19,30 +21,34 @@ class Actions
   end
 
   def set_name
-    @player = @session[:player] || @request.params['name']
+    @player = @request.params['name']
     @sessions_helper.save_to_yml(@session_id, :player, @player)
-    redirect('game')
+    redirect('new_game')
   end
 
-  def game
+  def new_game
+    @session[:game] = Codebreaker::Game.new
     @game.attempts_left = 10
+    @curent_game = []
     @sessions_helper.save_set_params(@session_id,
       %i(game curent_game),
       [@game, @curent_game])
-    Rack::Response.new(render('game'))
+    Rack::Response.new(render('main'))
   end
 
-  def process_reply
+  def process_input
     user_input = @request.params['user_input']
     result = @game.reply(user_input)
     store(user_input, result)
+    return Rack::Response.new(render('lose')) if result == :lose
+    return Rack::Response.new(render('won')) if result == :won
     Rack::Response.new(render('show_reply'))
   end
 
   def hint
-    # @session[hint].push(@game.reply('hint'))
-    # @hint = @session[:hint]
-    # Rack::Response.new(render('show_reply'))
+    result = @game.reply('hint')
+    @hint = result unless result == 'no hint'
+    Rack::Response.new(render('show_reply'))
   end
 
   def store(user_input, result)

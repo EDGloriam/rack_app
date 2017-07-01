@@ -1,7 +1,7 @@
 <div class="main">
   <p>Enter 4 numbers from 1 to 6</p>
 
-  <form method='post' action="/process_reply">
+  <form method='post' action="/process_input">
     <input name='user_input' type="text" maxlength="4" required autofocus>
     <button type='submit' class="button blue_alt">Try(<%=@game.attempts_left%>)</button>
   </form>

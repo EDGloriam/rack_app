@@ -18,8 +18,8 @@ class Racker
     case @request.path
     when '/' then  @actions.index
     when '/set_name' then  @actions.set_name
-    when '/game' then @actions.game
-    when '/process_reply' then @actions.process_reply
+    when '/new_game' then @actions.new_game
+    when '/process_input' then @actions.process_input
     when '/hint' then @actions.hint
     else Rack::Response.new('Page Not Found', 404)
     end
