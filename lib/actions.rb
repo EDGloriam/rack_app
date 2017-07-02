@@ -7,9 +7,9 @@ class Actions
 
   def initialize(request)
     @request = request
-      @sessions_helper = SessionHelper.new
-      @session_id = @request.session['session_id'].to_sym
-      @session = @sessions_helper.open_session(@session_id)
+    @sessions_helper = SessionHelper.new
+    @session_id = @request.session['session_id'].to_sym
+    @session = @sessions_helper.open_session(@session_id)
     @game = @session[:game]
     @curent_game = @session[:curent_game] || []
     @hint = @session[:hint]
@@ -28,15 +28,14 @@ class Actions
   def new_game
     @game.attempts_left = 10
     @curent_game = []
-    @sessions_helper.save_set_params(@session_id,
-      %i(game curent_game),
-      [@game, @curent_game])
+    @sessions_helper.save_set_params(@session_id,  %i(game curent_game), [@game, @curent_game])
     Rack::Response.new(render('main'))
   end
 
   def process_input
     user_input = @request.params['user_input']
     result = @game.reply(user_input)
+    result = 'no coincidence' if result.empty?
     store(user_input, result)
     return break_game(result) if [:won, :lose].include? result
     Rack::Response.new(render('show_reply'))
@@ -62,9 +61,7 @@ class Actions
 
   def store(user_input, result)
     @curent_game.push(user_input: user_input, result: result)
-    @sessions_helper.save_set_params(@session_id,
-      %i(game curent_game ),
-      [@game, @curent_game])
+    @sessions_helper.save_set_params(@session_id, %i(game curent_game ), [@game, @curent_game])
   end
 
   def render(template)
@@ -73,7 +70,6 @@ class Actions
       _render(main_template) { piece }
     end
   end
-
 
   def _render(template)
     path = File.expand_path("./views/#{template}.html.erb")

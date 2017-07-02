@@ -44,6 +44,7 @@ div.center-wrapper::after{
 }
 
 .hint span{
+  min-height: 25px;
   display: block;
   margin-bottom: 10px;
 }
@@ -85,10 +86,10 @@ tbody tr{
 tbody tr:last-child{
   border: none;
 }
-
+/*
 .tokens{
-  font-size: 1.6em;
-}
+  font-size: 1em;
+}*/
 
 table, form {
   vertical-align: middle;
@@ -177,4 +178,12 @@ li {list-style-type: none;}
   top: -30px;
   position: relative;
   display: inline;
+}
+
+#warning{
+    font-size: 1.3em;
+    display: block;
+    position: relative;
+    top: -11px;
+    color: red;
 }
