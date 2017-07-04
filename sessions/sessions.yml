@@ -1,0 +1,31 @@
+---
+:test:
+  :game: !ruby/object:Codebreaker::Game
+    hint_avaliable: true
+    secret_code:
+    - 3
+    - 5
+    - 6
+    - 1
+    attempts_spent: 0
+    attempts_left: 0
+:abracadabra:
+  :game: !ruby/object:Codebreaker::Game
+    hint_avaliable: true
+    secret_code:
+    - 2
+    - 5
+    - 5
+    - 2
+    attempts_spent: 0
+    attempts_left: 0
+:_:
+  :game: !ruby/object:Codebreaker::Game
+    hint_avaliable: true
+    secret_code:
+    - 6
+    - 2
+    - 4
+    - 3
+    attempts_spent: 0
+    attempts_left: 0
