@@ -1,0 +1,14 @@
+<div class="main">
+  <p>Enter 4 numbers from 1 to 6</p>
+
+  <form method='post' action="/process_input" id="input">
+    <input name='user_input' type="text" maxlength="4" required autofocus id="user_input">
+    <em id="warning"></em>
+    <button type='submit' class="buttons btn-try">Try(<%=@game.attempts_left%>)</button>
+  </form>
+
+  <form method='post' action="/hint" class="form-hint">
+    <button type='submit' class="buttons btn-hint">Hint</button>
+  </form>
+</div>
+
